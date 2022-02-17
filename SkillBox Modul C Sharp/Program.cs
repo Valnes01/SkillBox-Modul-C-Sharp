@@ -10,9 +10,18 @@ namespace SkillBox_Modul_C_Sharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World");
+            // Задача №1
+
+            Console.WriteLine("Hello World!!!");
             Console.ReadKey();
 
+            // Задача №2
+
+            Console.Write("Hello ");
+            Console.Write("World ");
+            Console.Write("!!!!");
+            Console.ReadLine();
         }
+
     }
 }
