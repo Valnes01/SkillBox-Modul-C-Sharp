@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillBox Modul C Sharp", "SkillBox Modul C Sharp\SkillBox Modul C Sharp.csproj", "{BEE6D3D7-1F70-4C15-9626-9F66A98F7DF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEE6D3D7-1F70-4C15-9626-9F66A98F7DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEE6D3D7-1F70-4C15-9626-9F66A98F7DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEE6D3D7-1F70-4C15-9626-9F66A98F7DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEE6D3D7-1F70-4C15-9626-9F66A98F7DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1A28E1C9-5282-42EA-87C6-A75C1D8BF007}
+	EndGlobalSection
+EndGlobal
