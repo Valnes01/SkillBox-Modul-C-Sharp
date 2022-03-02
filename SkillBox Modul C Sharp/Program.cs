@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 
-
-    public class Program
+namespace SkillBox_Modul_C_Sharp
+{
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             //задача 1. (Вариант 1)
             string FullName = "Федченко Иван Василеьвич";
@@ -45,5 +48,6 @@ using System.Text.RegularExpressions;
             float AverageScore = Score / 3;
             Console.WriteLine(AverageScore);
             Console.ReadKey();
+        }
     }
 }
