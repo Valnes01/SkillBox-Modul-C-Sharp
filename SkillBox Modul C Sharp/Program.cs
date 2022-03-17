@@ -9,45 +9,122 @@ namespace SkillBox_Modul_C_Sharp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            //задача 1. (Вариант 1)
-            string FullName = "Федченко Иван Василеьвич";
-            byte age = 29;
-            string EMail = "paladin7701@gmail.com";
-            float InfoPoints = 4.4F;
-            float MathsPoints = 5.0F;
-            float PhysicsPoints = 4.6F;
+            //    //задача 3.1. 
+            Console.WriteLine("Сейчас мы проверим четное или нечетное Ваше число \nВведите число для проверки");
+            int number1 = Convert.ToInt32(Console.ReadLine());
+            if (number1 % 2 == 0)
+            {
+                Console.WriteLine($"Число {number1} - четное");
+            }
+            else
+            {
+                Console.WriteLine($"Число {number1} - нечетное");
+            }
+            while (true)
+            {
+                Console.WriteLine("Хотите проверить еще число? Нажмите 1 - если да, 2 - нет");
+                int sequel = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Ф.И.О.: {0} \nВозраст: {1} \nEmail: {2} " +
-                "\nБаллы по программированию: {3} \nБаллы по математике: {4}" +
-                " \nБаллы по физике: {5}", FullName, age, EMail, InfoPoints, MathsPoints, PhysicsPoints);
+                if (sequel == 1)
+                {
+                    Console.WriteLine("Введите число для проверки");
+                    int number2 = Convert.ToInt32(Console.ReadLine());
+                    if (number2 % 2 == 0)
+                    {
+                        Console.WriteLine($"Число {number2} - четное");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Число {number2} - нечетное");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Досвидания!");
+                    Console.ReadKey();
+                    break;
+                }
+            }
+
+            //    //Задача 3.2
+            Console.Clear();
+            Console.WriteLine("Приветствую новый пользователь \nСейчас мы будем играть в \"Blackjack\" " +
+                "\nВ игре существуют следующие номиналы карт  цифры 1 до 10\n" +
+                    $"Для «картинок» следует принять обозначения латинскими буквами:" +
+                    $"\nВалет = J или j\nДама = Q или q\nКороль = K или k\nТуз = T или t " +
+                    $"\nНоминал картинки равен 10" +
+                "\nКакое количество карт у Вас в руках?");
+            int numCards = Convert.ToInt32(Console.ReadLine());
+            int sumCards = 0;
+            for (int i = 1; i <= numCards; i++)
+            {
+                Console.WriteLine($"Введите номинал {i} карты:");
+                string valueCard = Console.ReadLine();
+                int valueCard2;
+                switch (valueCard)
+                {
+                    case "J":
+                        sumCards += 10;
+                        break;
+                    case "j":
+                        sumCards += 10;
+                        break;
+                    case "Q":
+                        sumCards += 10;
+                        break;
+                    case "q":
+                        sumCards += 10;
+                        break;
+                    case "K":
+                        sumCards += 10;
+                        break;
+                    case "k":
+                        sumCards += 10;
+                        break;
+                    case "T":
+                        sumCards += 10;
+                        break;
+                    case "t":
+                        sumCards += 10;
+                        break;
+                    default:
+                        valueCard2 = Convert.ToInt32(valueCard);
+                        sumCards += valueCard2;
+                        break;
+                }
+            }
+            Console.WriteLine($"Сумма Ваших карт {sumCards}");
             Console.ReadKey();
 
-            //задача 1. (Вариант 2)
-            Console.Write("Введите ФИО: ");
-            string FullName2 = Console.ReadLine();
-            Console.Write("Введите возраст: ");
-            byte age2 = Convert.ToByte(Console.ReadLine());
-            Console.Write("Введите EMail: ");
-            string EMail2 = Console.ReadLine();
-            Console.Write("Введите кол-во баллов по информатике: ");
-            float InfoPoints2 = Convert.ToSingle(Console.ReadLine());
-            Console.Write("Введите кол-во баллов по математике: ");
-            float MathsPoints2 = Convert.ToSingle(Console.ReadLine());
-            Console.Write("Введите кол-во баллов по физике: ");
-            float PhysicsPoints2 = Convert.ToSingle(Console.ReadLine());
 
-            Console.WriteLine("Анкета участинка опроса \nФ.И.О.: {0} \nВозраст: {1} " +
-            "\nEmail: {2} \nБаллы по программированию: {3} " +
-            "\nБаллы по математике: {4} \nБаллы по физике: {5}", FullName2, age2, EMail2, InfoPoints2, MathsPoints2, PhysicsPoints2);
-            Console.ReadKey();
-
-            //Задача №2.
-            float Score = InfoPoints2 + MathsPoints2 + PhysicsPoints2;
-            float AverageScore = Score / 3;
-            Console.WriteLine(AverageScore);
+            //Задача 3.3
+            Console.Clear();
+            Console.WriteLine("Здравствуйте! Сейчас мы проверим ваше число на простоту\n" +
+                "Простое число — число, которое делится само на себя и на единицу" +
+                "\nВведите любое число");
+            int number = Convert.ToInt32(Console.ReadLine()); //5
+            int j = 1;
+            int result;
+            bool ez;
+            do
+            {
+                j++;
+                result = number % j;
+                ez = result != 0;
+            }
+            while (j < number - 1 && ez == true);
+            if (ez == true)
+            {
+                Console.WriteLine($"Число {number}  простое!");
+            }
+            else
+            {
+                Console.WriteLine($"Число {number} не простое!");
+            }
             Console.ReadKey();
         }
+            
     }
 }
