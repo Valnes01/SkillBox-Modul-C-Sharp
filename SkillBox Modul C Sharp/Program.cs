@@ -69,6 +69,43 @@ namespace SkillBox_Modul_C_Sharp
             Console.WriteLine($"\nНаименьшее число {min}");
 
             Console.ReadKey();
+
+            //Задча 4.3
+            Console.Clear();
+            Console.WriteLine("Введите максимальное число диапазона для игры \"Угадай число\"");
+            int maxNum = Convert.ToInt32(Console.ReadLine());
+
+            Random r = new Random();
+            int random = r.Next(0, maxNum);
+            string c = "";
+            Console.WriteLine($"Угадайте число от 0 до {maxNum}");
+
+            do
+            {
+                Console.WriteLine($"Введите число");
+                string userNum = Console.ReadLine();
+                if (userNum == c)
+                {
+                    Console.WriteLine($"{random} - загаданное число");
+                    break;
+                }
+                int userNum1 = Convert.ToInt32(userNum);
+                if (userNum1 > random)
+                {
+                    Console.WriteLine($"Ваше число больше загаданного");
+                }
+                else if (userNum1 < random)
+                {
+                    Console.WriteLine($"Ваше число меньше загаданного");
+                }
+                else
+                {
+                    Console.WriteLine($"Вы угадали! {userNum} - загаданное число");
+                    break;
+                }
+            }
+            while (1 == 1);
+            Console.ReadKey();
         }
             
     }
