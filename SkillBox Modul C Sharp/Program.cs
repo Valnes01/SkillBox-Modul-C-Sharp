@@ -9,104 +9,47 @@ namespace SkillBox_Modul_C_Sharp
 {
     class Program
     {
-        
         static void Main()
         {
-            //Задача 4.1
-            Console.WriteLine("Введите количество строк в матрице:");
-            int lines = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Введите количество столбцов в матрице:");
-            int columns = Convert.ToInt32(Console.ReadLine());
-            int[,] matrix = new int[lines, columns];
-            Random num = new Random();
-            int sum = 0;
-            for (int i = 0; i < lines; i++)
-            {
-
-                for (int j = 0; j < columns; j++)
-                {
-                    matrix[i, j] = num.Next(10);
-                    Console.Write($"{matrix[i, j]}\t");
-                    sum += matrix[i, j];
-                }
-                Console.WriteLine();
-
-            }
-            Console.WriteLine($"Сумма элементов = {sum}");
+            Console.WriteLine("Введите предложние:");
+            string Text = Console.ReadLine();
+            Console.WriteLine("Задача №1");
+            string[] separation = GetSeparationText(Text);
+            GetEnumerationText(separation);
             Console.ReadKey();
-
-            //Задача 4.2
-            Console.Clear();
-
-            Console.WriteLine("Введите размер последовательности");
-            int lenght = Convert.ToInt32(Console.ReadLine());
-            int p = 0;
-            int[] mass = new int[lenght];
-
-            for (int k = 0; k < lenght; ++k)
-            {
-                Console.WriteLine($"Введите {++p} значение");
-
-                int num1 = Convert.ToInt32(Console.ReadLine());
-                mass[k] = num1;
-
-            }
-            int min = int.MaxValue;
-            for (int i = 0; i < lenght; i++)
-            {
-
-                if (min > mass[i])
-                {
-                    min = mass[i];
-                }
-            }
-
-            Console.WriteLine($"Ваш массив выглядит следующим образом:");
-            foreach (int o in mass)
-            {
-                Console.Write($"{o}\t");
-            }
-            Console.WriteLine($"\nНаименьшее число {min}");
-
-            Console.ReadKey();
-
-            //Задча 4.3
-            Console.Clear();
-            Console.WriteLine("Введите максимальное число диапазона для игры \"Угадай число\"");
-            int maxNum = Convert.ToInt32(Console.ReadLine());
-
-            Random r = new Random();
-            int random = r.Next(0, maxNum);
-            string c = "";
-            Console.WriteLine($"Угадайте число от 0 до {maxNum}");
-
-            do
-            {
-                Console.WriteLine($"Введите число");
-                string userNum = Console.ReadLine();
-                if (userNum == c)
-                {
-                    Console.WriteLine($"{random} - загаданное число");
-                    break;
-                }
-                int userNum1 = Convert.ToInt32(userNum);
-                if (userNum1 > random)
-                {
-                    Console.WriteLine($"Ваше число больше загаданного");
-                }
-                else if (userNum1 < random)
-                {
-                    Console.WriteLine($"Ваше число меньше загаданного");
-                }
-                else
-                {
-                    Console.WriteLine($"Вы угадали! {userNum} - загаданное число");
-                    break;
-                }
-            }
-            while (1 == 1);
+            Console.WriteLine("Задача №2");
+            GetInvertText(separation, Text);
             Console.ReadKey();
         }
-            
+        static string[] GetSeparationText(string Text) //метод для разделения строки на массив слов
+        {
+            string[] separation = Text.Split(' ');
+            return separation;
+        }
+        static void GetEnumerationText(string [] separationA) //метод выведения на консоль массива слов
+        {
+            for(int i =0; i < separationA.Length; i++)
+            {
+                Console.WriteLine(separationA[i]);
+            }
+        }
+        static void GetInvertText(string [] separationA, string Text) //метод инверсии
+        {
+            GetSeparationText(Text);
+            for (int i = 0, j = separationA.Length-1; i < j; i++, j--)
+            {
+                string A = separationA[i];
+                separationA[i] = separationA[j];
+                separationA[j] = A;
+            }
+            for (int j = 0; j <=separationA.Length - 1; j++) 
+            {
+                Console.Write(separationA[j] + " ");
+            }
+            Console.WriteLine();
+            Console.WriteLine("Объединение в строку массива слов:");
+            var NewString = string.Join(" ", separationA);
+            Console.WriteLine(NewString);  
+        }
     }
 }
