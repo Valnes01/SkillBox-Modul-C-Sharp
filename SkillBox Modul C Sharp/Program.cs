@@ -33,9 +33,9 @@ namespace SkillBox_Modul_C_Sharp
 
         static void ReadingFile() // метод чтения файла
         {
-            if (File.Exists(@"Справочник сотрудники.csv"))
+            if (File.Exists("Справочник сотрудники.csv"))
             {
-                using (StreamReader directory = new StreamReader(@"Справочник сотрудники.csv", Encoding.Unicode))
+                using (StreamReader directory = new StreamReader("Справочник сотрудники.csv", Encoding.Unicode))
                 {
                     string line;
                     Console.WriteLine($"{"Порядковый номер"}{" Время добавления",20}{"ФИО",20} {"Возраст",25} {"Рост",10}{"Дата рождения",20}{"Место рождения",20}");
@@ -44,8 +44,8 @@ namespace SkillBox_Modul_C_Sharp
                         string[] column = line.Split('\t');
                         Console.WriteLine($"{column[0]}{column[1],35}{column[2],30}{column[3],15}{column[4],10}{column[5],20}{column[6],20}");
                     }
+                    Console.ReadKey();
                 }
-                Console.ReadKey();
             }
             else
             {
@@ -56,7 +56,7 @@ namespace SkillBox_Modul_C_Sharp
 
         static void InputFile() // метод ввода нового сотрудника
         {
-            using (StreamWriter newPerson = new StreamWriter(@"Справочник сотрудники.csv", true, Encoding.Unicode))
+            using (StreamWriter newPerson = new StreamWriter("Справочник сотрудники.csv", true, Encoding.Unicode))
             {
                 char key = 'е';
                 do
