@@ -12,6 +12,7 @@ namespace SkillBox_Modul_C_Sharp
             string numberRegime = Console.ReadLine();
             if (Int32.TryParse(numberRegime, out int i))
             {
+
                 if (i == 1 | i == 2 | i == 3) switch (i)
                     {
                         case 1: ReadingFile(); break;
