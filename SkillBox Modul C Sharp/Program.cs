@@ -26,9 +26,9 @@ namespace SkillBox_Modul_C_Sharp
                 }
             }
             else
-            { 
-                Console.WriteLine("Нужно ввести цифру 1 или 2"); 
-                Main(); 
+            {
+                Console.WriteLine("Нужно ввести цифру 1 или 2");
+                Main();
             }
         }
 
@@ -57,14 +57,16 @@ namespace SkillBox_Modul_C_Sharp
 
         static void InputFile() // метод ввода нового сотрудника
         {
+            int ID = IDNumber();
             using (StreamWriter newPerson = new StreamWriter("Справочник сотрудники.csv", true, Encoding.Unicode))
             {
+                
                 char key = 'е';
                 do
                 {
                     string note = string.Empty;
-                    Console.WriteLine("\nВведите порядковый номер сотрудника: ");
-                    note = $"{Console.ReadLine()}\t";
+                    Console.WriteLine($"\nПорядковый номер сотрудника: \n{++ID} ");
+                    note = $"{ID}\t";
                     string dataAndTime = DateTime.Now.ToString();
                     Console.WriteLine($"Дата и время добавления записи {dataAndTime}");
                     note += $"{dataAndTime}\t";
@@ -79,10 +81,29 @@ namespace SkillBox_Modul_C_Sharp
                     Console.WriteLine("Введите место рождения сотрудника: ");
                     note += $"{Console.ReadLine()}\t";
                     newPerson.WriteLine(note);
-                    Console.WriteLine("Чтобы внести данные еще одного сотрудника нажмите:\"е\""); 
+                    Console.WriteLine("Чтобы внести данные еще одного сотрудника нажмите:\"е\"");
                     key = Console.ReadKey(true).KeyChar;
                 } while (char.ToLower(key) == 'е');
             }
+        }
+
+        static int IDNumber()
+        {
+            int numID=0;
+            if (File.Exists(@"Справочник сотрудники.csv"))
+            {
+                using (StreamReader directory = new StreamReader("Справочник сотрудники.csv", Encoding.Unicode))
+                {
+                    string line;
+                    while ((line = directory.ReadLine()) != null)
+                    {
+                        string[] column = line.Split('\t');
+                        numID = Convert.ToInt32(column[0]);
+                    }
+                    return numID;
+                }
+            }
+            else return numID;
         }
     }
 }
